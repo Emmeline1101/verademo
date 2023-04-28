@@ -11,6 +11,6 @@ build:
 	docker build -t verademo .
 
 run:
-	docker run -p 8080:8080 --platform linux/amd64 -it verademo
+	docker run -p 8080:8080 -it verademo
 
 restart: clean build run
