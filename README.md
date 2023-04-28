@@ -45,7 +45,7 @@ docker build -t verademo .
 
 To run the container run this:
 ```
-docker run -p 8080:8080 --platform linux/amd64 -it verademo
+docker run -p 8080:8080 -it verademo
 ```
 
 ## Quick Commands using Makefile
