@@ -17,15 +17,46 @@ Blab-a-Gag is a fairly simple forum type application which allows:
 - `/register` allows you to create a new user account
 - `/tools` shows a tools page that shows a fortune or lets you ping a host.
 
-## Run
+## Running the Project
 
-If you don't already have Docker this is a prerequisite.
+1. Verify you have docker installed via `docker ps`
 
-```
-docker run --rm -it -p 8080:8080 antfie/verademo
-```
+2. Download the project via
 
-Navigate to: http://127.0.0.1:8080.
+   ```
+   git clone https://github.com/YuqiHuai/verademo
+   ```
+
+3. Navigate to the root directory of the project via
+
+   ```
+   cd verademo
+   ```
+
+4. Build the project via
+
+   ```
+   docker build -t verademo .
+   ```
+
+   > This command looks at the Dockerfile in your current working directory
+   > (i.e., after you run cd verademo, your current working directory is verademo)
+   > and builds a docker image based on that Dockerfile. Docker image allows docker
+   > to create a container, a container is a lightweight virtual machine.
+
+5. Run the project via
+
+   ```
+   docker run -p 8080:8080 -it verademo
+   ```
+
+   > This command creates a container based on the image named verademo
+   > (i.e., the one you built in the previous step), and binds port 8080
+   > of your local machine to port 8080 of the container, so if you open
+   > a browser and go to http://127.0.0.1:8080, you are viewing the content
+   > from port 8080 of the container.
+
+6. Navigate to: http://127.0.0.1:8080
 
 ## Exploitation Demos
 
@@ -36,20 +67,6 @@ See the `docs` folder.
 - Spring boot
 - MariaDB
 
-## Development
-
-To build the container run this:
-
-```
-docker build -t verademo .
-```
-
-To run the container run this:
-
-```
-docker run -p 8080:8080 -it verademo
-```
-
 ## Quick Commands using Makefile
 
 To simplify commands for using Docker, a Makefile is provided with the following commands:
@@ -58,3 +75,24 @@ To simplify commands for using Docker, a Makefile is provided with the following
 - `make build` will build the docker image
 - `make run` will run the built docker image
 - `make restart` will rebuild the image and restart the container
+
+> You must build the image before you can run a container with that image.
+
+## Workflow when doing the assignment
+
+The assignment asks you to run the project, understand some of the exploits,
+and try to fix them. Therefore you are expected to read the source code of the
+project, and make some modifications to mitigate the threat.
+
+So the first thing you do is to run `git clone ...` to download the project.
+After doing so, you can find the source code of the project under `verademo/app`.
+
+You build the project by running `docker build ...` , run the project by running
+`docker run ...`, and go to http://127.0.0.1:8080 to explore the web app.
+
+After you have explored enough and understood the exploits, you modify the source
+code in `verademo/app` to mitigate some of the threats. Each time you modify the
+source code you need to rebuild the project by running `docker build ...` and rerun
+the project by running `docker run ...` to see the effect of your changes.
+
+You must rebuild and rerun the project to see your changes.
