@@ -67,17 +67,6 @@ See the `docs` folder.
 - Spring boot
 - MariaDB
 
-## Quick Commands using Makefile
-
-To simplify commands for using Docker, a Makefile is provided with the following commands:
-
-- `make clean` will stop and remove all docker containers
-- `make build` will build the docker image
-- `make run` will run the built docker image
-- `make restart` will rebuild the image and restart the container
-
-> You must build the image before you can run a container with that image.
-
 ## Workflow when doing the assignment
 
 The assignment asks you to run the project, understand some of the exploits,
@@ -96,3 +85,12 @@ source code you need to rebuild the project by running `docker build ...` and re
 the project by running `docker run ...` to see the effect of your changes.
 
 You must rebuild and rerun the project to see your changes.
+
+## Quick Commands using Makefile
+
+To simplify commands for using Docker, a Makefile is provided with the following commands:
+
+- `make clean` will stop and remove all docker containers
+- `make build` will build the docker image
+- `make run` will run the built docker image
+- `make restart` will rebuild the image and restart the container
