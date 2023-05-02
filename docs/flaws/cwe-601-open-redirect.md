@@ -7,7 +7,7 @@ the destination website served when navigating through VeraDemo.
 
 Exploit
 -------
-1. Go to /verademo/login?target=http://google.com
+1. Go to http://localhost:8080/login?target=http://google.com
 2. Login, if the user is not already
 3. Observe the Google homepage is loaded
 

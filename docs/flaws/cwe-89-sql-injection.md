@@ -7,7 +7,7 @@ their own SQL components.
 
 Exploit
 -------
-1. Go to /verademo/login
+1. Go to http://localhost:8080/login
 2. For Username fill in: admin' or 1 -- 
 3. Observe that you can bypass authentication and log in as the admin user.
 

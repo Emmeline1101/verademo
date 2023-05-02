@@ -7,7 +7,7 @@ I wonder what would happen if registration is never completed...
 
 Exploit
 -------
-1. Go to /register
+1. Go to http://localhost:8080/register
 2. Try to register for 'admin'
 3. Note the error saying the user already exists.
 4. Now go to 'Log in'

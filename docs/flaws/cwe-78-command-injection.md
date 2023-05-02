@@ -9,7 +9,7 @@ Unfortunately they do so by directly executing shell commands without any valida
 Exploit
 -------
 We can exploit this like so:
-1. Go to `/verademo/tools`.
+1. Go to http://localhost:8080/tools.
 2. For Host enter: `127.0.0.1 ; cat /etc/passwd`.
 3. Click `Check`.
 4. Observe the file listing as evidence that OS command injection has occurred.
