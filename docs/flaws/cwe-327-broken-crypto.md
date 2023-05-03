@@ -7,7 +7,7 @@ Using a SQL injection vulnerability, we can extract the hashes from the database
 
 1. Login as a non-admin user (e.g. john)
 2. Go to http://127.0.0.1:8080/profile
-3. For Username fill in: john' UNION ALL (SELECT username, password, 1 FROM users WHERE username = 'admin') --
+3. For Username fill in: `john' UNION ALL (SELECT username, password, 1 FROM users WHERE username = 'admin') -- `
    (Note the trailing space character!)
 4. Ignore the error message in the Eclipse console
 5. Refresh the page
