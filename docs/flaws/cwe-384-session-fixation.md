@@ -26,8 +26,8 @@ This demo does just that with an XSS flaw and a weakened session cookie.
 
 ## Mitigate
 
-Remove useHttpOnly="false" from Tomcat context.xml.
+Change `server.servlet.session.cookie.http-only` to `true` from `application.properties`.
 
 ## Remediate
 
-Change the session id after login.
+Change the session id after login. ([Hint](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html#changeSessionId--))
