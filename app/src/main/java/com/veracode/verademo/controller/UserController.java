@@ -186,6 +186,11 @@ public class UserController {
 				PreparedStatement update = connect.prepareStatement("UPDATE users SET last_login=NOW() WHERE username=?;");
 				update.setString(1, result.getString("username"));
 				update.execute();
+
+				req.getSession().invalidate(); // delete old session
+				req.getSession(true); // create new session
+				Utils.setSessionUserName(req, response, result.getString("username"));
+				
 			} else {
 				// Login failed...
 				logger.info("User Not Found");
@@ -289,15 +294,16 @@ public class UserController {
 
 		return "register";
 	}
+	//Vulnerability1 - Trust Boundary Violation
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String processRegister(
-			@RequestParam(value = "user") String username,
+			@RequestParam(value = "user") String username, //here
 			HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse,
 			Model model) {
 		logger.info("Entering processRegister");
-		Utils.setSessionUserName(httpRequest, httpResponse, username);
+		// Utils.setSessionUserName(httpRequest, httpResponse, username); //here
 
 		// Get the Database Connection
 		logger.info("Creating the Database connection");
@@ -376,6 +382,7 @@ public class UserController {
 			/* END EXAMPLE VULNERABILITY */
 
 			emailUser(username);
+			Utils.setSessionUserName(httpRequest, response, username);
 		} catch (SQLException | ClassNotFoundException ex) {
 			logger.error(ex);
 		} finally {
